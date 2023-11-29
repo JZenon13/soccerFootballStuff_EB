@@ -1,0 +1,40 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-srv
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: "true"
+spec:
+  rules:
+    - host: socfootstuff.com
+      http:
+        paths:
+          - path: /league(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: league-srv
+                port:
+                  number: 3001
+          - path: /player(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: player-srv
+                port:
+                  number: 3002
+          - path: /team(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: team-srv
+                port:
+                  number: 3003
+          - path: /?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: client-srv
+                port:
+                  number: 3000
