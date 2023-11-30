@@ -26,10 +26,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: rabbitmq-svc
+  name: soccerfootballstuff-rabbitmq-svc
 spec:
   selector:
-    app: rabbitmq
+    app: soccerfootballstuff-rabbitmq
   ports:
     - name: events
       protocol: TCP
