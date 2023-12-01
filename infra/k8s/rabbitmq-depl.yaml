@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rabbitmq-depl
+  name: soccerfootballstuff-rabbitmq-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: rabbitmq
+      app: soccerfootballstuff-rabbitmq
   template:
     metadata:
       labels:
-        app: rabbitmq
+        app: soccerfootballstuff-rabbitmq
     spec:
       containers:
-        - name: rabbitmq
-          image: rabbitmq:management
+        - name: soccerfootballstuff-rabbitmq
+          image: jzenon13/soccerfootballstuff-rabbitmq:management
           resources:
             requests:
               memory: "300Mi"
