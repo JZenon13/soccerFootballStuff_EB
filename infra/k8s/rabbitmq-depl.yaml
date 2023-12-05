@@ -28,6 +28,7 @@ kind: Service
 metadata:
   name: soccerfootballstuff-rabbitmq-svc
 spec:
+  type: NodePort
   selector:
     app: soccerfootballstuff-rabbitmq
   ports:
